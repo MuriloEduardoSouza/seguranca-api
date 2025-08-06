@@ -1,4 +1,4 @@
-package com.murilo.segurancaAPI.entidade;
+package com.murilo.segurancaAPI.entity;
 
 public enum Role {
     ADMIN,

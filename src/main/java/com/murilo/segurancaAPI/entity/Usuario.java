@@ -1,8 +1,7 @@
-package com.murilo.segurancaAPI.entidade;
+package com.murilo.segurancaAPI.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Table(name = "usuarios")

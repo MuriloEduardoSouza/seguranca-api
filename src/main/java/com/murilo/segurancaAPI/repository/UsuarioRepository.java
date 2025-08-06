@@ -1,7 +1,11 @@
 package com.murilo.segurancaAPI.repository;
 
-import com.murilo.segurancaAPI.entidade.Usuario;
+import com.murilo.segurancaAPI.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+
+     Optional<Usuario> findByLogin(String login);
 }
