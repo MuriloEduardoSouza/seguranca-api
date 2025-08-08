@@ -1,13 +1,13 @@
 package com.murilo.segurancaAPI.controller;
 
+import com.murilo.segurancaAPI.controller.dto.AutenticacaoDTO;
 import com.murilo.segurancaAPI.controller.dto.UsuarioDTO;
+import com.murilo.segurancaAPI.entity.Usuario;
 import com.murilo.segurancaAPI.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -17,7 +17,12 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Object> cadastrar(@RequestBody UsuarioDTO dto){
+    public ResponseEntity<Usuario> cadastrar(@RequestBody UsuarioDTO dto){
         return usuarioService.salvar(dto);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Void> login(@RequestBody @Valid AutenticacaoDTO dto){
+        return usuarioService.login(dto);
     }
 }
