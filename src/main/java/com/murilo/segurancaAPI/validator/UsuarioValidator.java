@@ -6,9 +6,9 @@ import com.murilo.segurancaAPI.controller.dto.UsuarioDTO;
 import com.murilo.segurancaAPI.entity.Usuario;
 import com.murilo.segurancaAPI.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
+@Component
 @RequiredArgsConstructor
 public class UsuarioValidator {
 
@@ -30,10 +30,6 @@ public class UsuarioValidator {
 
         if(senhaDigitada.length() < 6){
             throw new SenhaInvalidaException("A senha deve ter pelo menos 6 caracteres.");
-        }
-
-        else if(senhaDigitada == null || senhaDigitada.isBlank()){
-            throw new SenhaInvalidaException(("O campo não pode estar vazio."));
         }
 
         else if(!senhaDigitada.matches(".*[A-Z].*")){

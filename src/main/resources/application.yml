@@ -19,3 +19,8 @@ spring:
           google:
             client-id: 964180923138-kptflh85fdiclgm7kdmsghoe3jiem6rh.apps.googleusercontent.com
             client-secret: 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
+jwt:
+  secret: ${JWT_SECRET:change-me-in-env}
+  expiration: 3600
+  issuer: segurancaAPI
+
