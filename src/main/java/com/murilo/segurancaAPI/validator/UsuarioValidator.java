@@ -1,12 +1,14 @@
 package com.murilo.segurancaAPI.validator;
 
-import com.murilo.segurancaAPI.Exception.SenhaInvalidaException;
-import com.murilo.segurancaAPI.Exception.UsuarioDuplicadoException;
+import com.murilo.segurancaAPI.exception.SenhaInvalidaException;
+import com.murilo.segurancaAPI.exception.UsuarioDuplicadoException;
 import com.murilo.segurancaAPI.controller.dto.UsuarioDTO;
 import com.murilo.segurancaAPI.entity.Usuario;
 import com.murilo.segurancaAPI.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Component
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package com.murilo.segurancaAPI.Exception;
+package com.murilo.segurancaAPI.exception;
 
 import org.springframework.http.HttpStatus;
 

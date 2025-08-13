@@ -3,6 +3,7 @@ package com.murilo.segurancaAPI.service;
 import com.murilo.segurancaAPI.controller.dto.AutenticacaoDTO;
 import com.murilo.segurancaAPI.controller.dto.TokenResponseDTO;
 import com.murilo.segurancaAPI.controller.dto.UsuarioDTO;
+import com.murilo.segurancaAPI.controller.dto.UsuarioResponseDTO;
 import com.murilo.segurancaAPI.controller.mappers.UsuarioMapper;
 import com.murilo.segurancaAPI.entity.Usuario;
 import com.murilo.segurancaAPI.repository.UsuarioRepository;
@@ -29,15 +30,13 @@ public class UsuarioService {
     private final UsuarioValidator validator;
     private final TokenService tokenService;
 
-    public ResponseEntity<Usuario> salvar(UsuarioDTO dto){
+    public Usuario salvar(UsuarioDTO dto){
             Usuario usuario = mapper.toEntity(dto);
             String senhaCriptografada = passwordEncoder.encode(dto.getSenha());
             usuario.setSenha(senhaCriptografada);
             validator.existeUsuarioCadastrado(usuario);
             validator.validarSenha(dto);
-            usuarioRepository.save(usuario);
-
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            return usuarioRepository.save(usuario);
     }
 
     public ResponseEntity<TokenResponseDTO> login(AutenticacaoDTO dto){

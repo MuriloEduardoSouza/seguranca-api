@@ -1,4 +1,4 @@
-package com.murilo.segurancaAPI.Exception;
+package com.murilo.segurancaAPI.exception;
 
 public class RecursoNaoEncontradoException extends RuntimeException{
     public RecursoNaoEncontradoException(String mensagem){
